@@ -1,0 +1,42 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zype.android.ui.video_details.fragments.summary.SummaryFragment"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/textVideoTitle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            tools:text="Video Title"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textVideoDescription"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:text="Video description"
+            />
+<!--
+        <com.ns.developer.tagview.widget.TagCloudLinkView
+            android:id="@+id/tag_cloud"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            app:isDeletable="false"
+            app:tagLayoutColor="?attr/colorAccent"
+            app:tagTextColor="@android:color/white"
+            app:tagTextSize="8sp"/>
+-->
+    </LinearLayout>
+</ScrollView>
