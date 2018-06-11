@@ -6,12 +6,12 @@ package com.zype.android;
 
 public class ZypeSettings {
     // Zype app key
-    public static final String APP_KEY = "<APP_KEY>";
+    public static final String APP_KEY = "T9-gFAuN0l9yuxyR3SHiLSOlZql5E8w2zWQW2o16kjDHgMSGxEI7ePdjJUDIqNc_";
     // OAuth credentials
-    public static final String CLIENT_ID = "<CLIENT_ID>";
-    public static final String CLIENT_SECRET = "<CLIENT_SECRET>";
+    public static final String CLIENT_ID = "c95d8435c66d4d43187ea17d7b04622d7104f05c7e2f44be2a4f4944b95e0e33";
+    public static final String CLIENT_SECRET = "2bca4c00e38553605be074ff30e87c2b165a9779f7a9d49813d3cb56775fd679";
     // Playlist
-    public static final String ROOT_PLAYLIST_ID = "<ROOT_PLAYLIST_ID>";
+    public static final String ROOT_PLAYLIST_ID = "5a736db6d6a6de1227000528";
 
     // Google Analytics Tracking Id
     // TODO: To use Google Analytics provide your GA tracking id
@@ -25,23 +25,23 @@ public class ZypeSettings {
     public static final String WEB_URL = "";
 
     // Monetization
-    public static final boolean NATIVE_SUBSCRIPTION_ENABLED = Boolean.valueOf("<NATIVE_SUBSCRIPTION_ENABLED>");
-    public static final boolean NATIVE_TO_UNIVERSAL_SUBSCRIPTION_ENABLED = Boolean.valueOf("<NATIVE_TO_UNIVERSAL_SUBSCRIPTION_ENABLED>");
-    public static final boolean SUBSCRIBE_TO_WATCH_AD_FREE_ENABLED = Boolean.valueOf("<SUBSCRIBE_TO_WATCH_AD_FREE_ENABLED>");
-    public static final boolean UNIVERSAL_SUBSCRIPTION_ENABLED = Boolean.valueOf("<UNIVERSAL_SUBSCRIPTION_ENABLED>");
-    public static final boolean UNIVERSAL_TVOD = Boolean.valueOf("<UNIVERSAL_TVOD>");
+    public static final boolean NATIVE_SUBSCRIPTION_ENABLED = false;
+    public static final boolean NATIVE_TO_UNIVERSAL_SUBSCRIPTION_ENABLED = false;
+    public static final boolean SUBSCRIBE_TO_WATCH_AD_FREE_ENABLED = false;
+    public static final boolean UNIVERSAL_SUBSCRIPTION_ENABLED = true;
+    public static final boolean UNIVERSAL_TVOD = true;
 
     // Features
-    public static final boolean AUTOPLAY = Boolean.valueOf("<AUTOPLAY>");
-    public static final boolean BACKGROUND_PLAYBACK_ENABLED = Boolean.valueOf("<BACKGROUND_PLAYBACK_ENABLED>");
-    public static final boolean DOWNLOADS_ENABLED = Boolean.valueOf("<DOWNLOADS_ENABLED>");
-    public static final boolean DOWNLOADS_ENABLED_FOR_GUESTS = Boolean.valueOf("<DOWNLOADS_ENABLED_FOR_GUESTS>");
+    public static final boolean BACKGROUND_PLAYBACK_ENABLED = true;
+    public static final boolean AUTOPLAY = true;
+    public static final boolean DOWNLOADS_ENABLED = true;
+    public static final boolean DOWNLOADS_ENABLED_FOR_GUESTS = false;
     // TODO: 'Share video' is not currently supported by the app builder. Update these flag if needed.
     public static final boolean SHARE_VIDEO_ENABLED = false;
 //    public static final boolean SHARE_VIDEO_ENABLED = Boolean.valueOf("<SHARE_VIDEO_ENABLED>");
 
-    public static final boolean DEVICE_LINKING = Boolean.valueOf("<DEVICE_LINKING>");
-    public static final String DEVICE_LINKING_URL = "<DEVICE_LINKING_URL>";
+    public static final boolean DEVICE_LINKING = false;
+    public static final String DEVICE_LINKING_URL = "http://hoi.tv";
 
     /**
      * Theme of the app.
@@ -49,7 +49,7 @@ public class ZypeSettings {
      * @see ZypeConfiguration#THEME_LIGHT
      * @see ZypeConfiguration#THEME_DARK
      */
-    public static final String THEME = "<THEME>";
+    public static final String THEME = "light";
 
 }
 

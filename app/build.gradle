@@ -79,7 +79,7 @@ android {
         }
         template {
             versionName '1.0.0'
-            applicationId "<APPLICATION_ID>"
+            applicationId "tv.hoi.hoitv.android"
             manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
                                     // TODO: Provide valid app_id and google_project_number for OneSignal
                                     onesignal_app_id               : "",
