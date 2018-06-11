@@ -196,19 +196,23 @@ public class MainActivity extends BaseActivity implements OnMainActivityFragment
     }
 
     @Override
-    public void onPlaylist(String parentId) {
+    public void onPlaylist(String parentId, String parentImg, String parentDescription) {
         Intent intent = new Intent(getApplicationContext(), PlaylistActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(BundleConstants.PARENT_ID, parentId);
+        bundle.putString(BundleConstants.PARENT_IMG, parentImg);
+        bundle.putString(BundleConstants.PARENT_DESCRIPTION, parentDescription);
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
     @Override
-    public void onPlaylistWithVideos(String parentId) {
+    public void onPlaylistWithVideos(String parentId, String parentImg, String parentDescription) {
         Intent intent = new Intent(getApplicationContext(), VideosActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(BundleConstants.PARENT_ID, parentId);
+        bundle.putString(BundleConstants.PARENT_IMG, parentImg);
+        bundle.putString(BundleConstants.PARENT_DESCRIPTION, parentDescription);
         intent.putExtras(bundle);
         startActivity(intent);
     }

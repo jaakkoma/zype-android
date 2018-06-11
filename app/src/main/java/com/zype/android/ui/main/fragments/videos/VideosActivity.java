@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.LoaderManager;
@@ -25,6 +27,7 @@ import android.widget.TextView;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.Purchase;
 import com.squareup.otto.Subscribe;
+import com.squareup.picasso.Picasso;
 import com.zype.android.Billing.BillingManager;
 import com.zype.android.Billing.SubscriptionsHelper;
 import com.zype.android.BuildConfig;
@@ -70,6 +73,8 @@ import com.zype.android.webapi.model.player.File;
 import com.zype.android.webapi.model.video.Pagination;
 import com.zype.android.webapi.model.video.VideoData;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -77,7 +82,7 @@ import java.util.List;
 import retrofit.RetrofitError;
 
 public class VideosActivity extends MainActivity implements ListView.OnItemClickListener, LoaderManager.LoaderCallbacks<Cursor>,
-                                                        BillingManager.BillingUpdatesListener {
+        BillingManager.BillingUpdatesListener {
 
     private static final int LOADER_VIDEO = 0;
     private long currentDate;
@@ -98,6 +103,11 @@ public class VideosActivity extends MainActivity implements ListView.OnItemClick
     private LoaderManager mLoader;
     private ArrayList<VideoData> mVideoList;
     private String playlistId = "123";
+    private String playlistImg = "url";
+    private ImageView mPlaylistImg;
+    private String playlistDescription = "";
+    private TextView mPlaylistDescription;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,11 +122,18 @@ public class VideosActivity extends MainActivity implements ListView.OnItemClick
 
         if (getIntent() != null) {
             playlistId = getIntent().getStringExtra(BundleConstants.PARENT_ID);
+            playlistImg = getIntent().getStringExtra(BundleConstants.PARENT_IMG);
+            playlistDescription = getIntent().getStringExtra(BundleConstants.PARENT_DESCRIPTION);
+
         } else {
             throw new IllegalStateException("Playlist Id can not be empty");
         }
 
-        updateTitle();
+        mPlaylistImg = (ImageView) findViewById(R.id.playlistThumbnail);
+        Picasso.with(this).load(playlistImg).into(mPlaylistImg);
+
+        mPlaylistDescription = (TextView) findViewById(R.id.playlistDescription);
+        mPlaylistDescription.setText(playlistDescription);
 
         mListView = (ListView) findViewById(R.id.list_latest);
         mListView.setOnItemClickListener(this);

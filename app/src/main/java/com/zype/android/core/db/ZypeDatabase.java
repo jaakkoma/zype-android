@@ -107,6 +107,7 @@ public class ZypeDatabase extends SQLiteOpenHelper {
                 + Contract.Playlist.COLUMN_ID + TYPE_TEXT + NOT_NULL + " PRIMARY KEY " + COMMA_SEP
                 + Contract.Playlist.COLUMN_TITLE + TYPE_TEXT + COMMA_SEP
                 + Contract.Playlist.COLUMN_PARENT_ID + TYPE_TEXT + COMMA_SEP
+                + Contract.Playlist.COLUMN_DESCRIPTION + TYPE_TEXT + COMMA_SEP
                 + Contract.Playlist.COLUMN_CREATED_AT + TYPE_TEXT + COMMA_SEP
                 + Contract.Playlist.COLUMN_DELETED_AT + TYPE_TEXT + COMMA_SEP
                 + Contract.Playlist.COLUMN_UPDATED_AT + TYPE_TEXT + COMMA_SEP

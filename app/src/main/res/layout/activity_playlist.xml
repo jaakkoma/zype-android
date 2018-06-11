@@ -7,16 +7,40 @@
     android:fitsSystemWindows="true"
     tools:context="com.zype.android.ui.main.fragments.playlist.PlaylistActivity"
     >
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:theme="@style/AppTheme.AppBarOverlay"
-        >
+        app:theme="@style/AppTheme.AppBarOverlay">
+
         <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/playlistThumbnail"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:contentDescription="Thumbnail of Playlist"
+
+            android:scaleType="fitCenter"
+            app:srcCompat="@color/black_38" />
+
+        <TextView
+            android:id="@+id/playlistDescription"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:paddingLeft="25dip"
+            android:paddingRight="25dip"
+            android:scaleType="fitCenter"
+            android:text="Playlist Description" />
     </android.support.design.widget.AppBarLayout>
     <FrameLayout
         android:layout_width="match_parent"

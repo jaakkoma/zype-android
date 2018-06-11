@@ -21,6 +21,9 @@ public class Image {
     @Expose
     private String title;
 
+    @Expose
+    private String description;
+
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;

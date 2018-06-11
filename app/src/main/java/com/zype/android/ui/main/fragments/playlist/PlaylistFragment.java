@@ -254,10 +254,9 @@ public class PlaylistFragment extends BaseFragment implements ListView.OnItemCli
 
         if (holder.playlistId != null){
             if (holder.playlistItemCount == 0){
-                mListener.onPlaylist(holder.playlistId);
+                mListener.onPlaylist(holder.playlistId, holder.playlistImg, holder.playlistDescription);
             } else {
-                mListener.onPlaylistWithVideos(holder.playlistId);
-            }
+                mListener.onPlaylistWithVideos(holder.playlistId, holder.playlistImg, holder.playlistDescription);            }
         }
     }
 

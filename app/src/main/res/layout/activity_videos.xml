@@ -17,6 +17,30 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             />
+
+        <ImageView
+            android:id="@+id/playlistThumbnail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:contentDescription="Thumbnail of Playlist"
+
+            android:scaleType="fitCenter"
+            app:srcCompat="@color/black_38" />
+
+        <TextView
+            android:id="@+id/playlistDescription"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:paddingLeft="25dip"
+            android:paddingRight="25dip"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            android:text="Playlist Description" />
     </android.support.design.widget.AppBarLayout>
     <FrameLayout
         android:layout_width="match_parent"

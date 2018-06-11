@@ -10,11 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 
 import com.squareup.otto.Subscribe;
+import com.squareup.picasso.Picasso;
 import com.zype.android.R;
 import com.zype.android.core.provider.Contract;
 import com.zype.android.core.provider.CursorHelper;
@@ -41,6 +43,10 @@ public class PlaylistActivity extends BaseActivity implements ListView.OnItemCli
     private ArrayList<PlaylistData> mPlaylistList;
     private String parentId = "";
     private static final int LOADER_PLAYLIST_ACTIVITY = 9397;
+    private String playlistImg = "url";
+    private ImageView mPlaylistImg;
+    private String playlistDescription = "";
+    private TextView mPlaylistDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +59,17 @@ public class PlaylistActivity extends BaseActivity implements ListView.OnItemCli
 
         if (getIntent() != null) {
             parentId = getIntent().getStringExtra(BundleConstants.PARENT_ID);
+            playlistImg = getIntent().getStringExtra(BundleConstants.PARENT_IMG);
+            playlistDescription = getIntent().getStringExtra(BundleConstants.PARENT_DESCRIPTION);
         } else {
             throw new IllegalStateException("Playlist Id can not be empty");
         }
+
+        mPlaylistImg = (ImageView) findViewById(R.id.playlistThumbnail);
+        Picasso.with(this).load(playlistImg).into(mPlaylistImg);
+
+        mPlaylistDescription = (TextView) findViewById(R.id.playlistDescription);
+        mPlaylistDescription.setText(playlistDescription);
 
         updateTitle();
 
@@ -170,12 +184,16 @@ public class PlaylistActivity extends BaseActivity implements ListView.OnItemCli
                 Intent intent = new Intent(getApplicationContext(), PlaylistActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString(BundleConstants.PARENT_ID, holder.playlistId);
+                bundle.putString(BundleConstants.PARENT_IMG, holder.playlistImg);
+                bundle.putString(BundleConstants.PARENT_DESCRIPTION, holder.playlistDescription);
                 intent.putExtras(bundle);
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(getApplicationContext(), VideosActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString(BundleConstants.PARENT_ID, holder.playlistId);
+                bundle.putString(BundleConstants.PARENT_IMG, holder.playlistImg);
+                bundle.putString(BundleConstants.PARENT_DESCRIPTION, holder.playlistDescription);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

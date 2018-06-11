@@ -7,6 +7,7 @@ import com.zype.android.R;
 import com.zype.android.core.provider.Contract;
 import com.zype.android.ui.OnVideoItemAction;
 import com.zype.android.ui.OnLoginAction;
+import com.zype.android.utils.Logger;
 import com.zype.android.utils.UiUtils;
 import com.zype.android.webapi.model.playlist.Image;
 import com.zype.android.webapi.model.video.Thumbnail;
@@ -26,6 +27,8 @@ import android.widget.TextView;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import android.util.Log;
+
 
 public class PlaylistCursorAdapter extends CursorAdapter {
 
@@ -33,6 +36,7 @@ public class PlaylistCursorAdapter extends CursorAdapter {
     private final OnVideoItemAction mOnVideoItemAction;
     private int COL_PLAYLIST_ID = -1;
     private int COL_PLAYLIST_TITLE = -1;
+    private int COL_PLAYLIST_DESCRIPTION = -1;
     private int COL_PLAYLIST_THUMBNAILS = -1;
     private int COL_PLAYLIST_PARENT_ID = -1;
     private int COL_PLAYLIST_ITEM_COUNT = -1;
@@ -102,12 +106,13 @@ public class PlaylistCursorAdapter extends CursorAdapter {
         }
 
         viewHolder.title.setText(cursor.getString(COL_PLAYLIST_TITLE));
+        viewHolder.playlistDescription = cursor.getString(COL_PLAYLIST_DESCRIPTION);
         //viewHolder.thumbnail.setImageDrawable(null);
 
         if (cursor.getString(COL_PLAYLIST_THUMBNAILS) != null) {
             loadImage(context, cursor, viewHolder);
         }
-
+        Log.d("COL_PLAYLIST", String.valueOf(viewHolder.playlistImg));
         viewHolder.playlistId = cursor.getString(COL_PLAYLIST_ID);
         viewHolder.parentId = cursor.getString(COL_PLAYLIST_PARENT_ID);
         viewHolder.playlistItemCount = cursor.getInt(COL_PLAYLIST_ITEM_COUNT);
@@ -166,6 +171,8 @@ public class PlaylistCursorAdapter extends CursorAdapter {
         final String thumbnailsString = cursor.getString(COL_PLAYLIST_THUMBNAILS);
         final String imagesString = cursor.getString(COL_PLAYLIST_IMAGES);
 
+
+
         String placeholderUrl = "https://placeholdit.imgix.net/~text?txtsize=40&txt=No%20thumbnail%20available&w=720&h=240";
 
         // Find playlist thumbnail
@@ -194,6 +201,9 @@ public class PlaylistCursorAdapter extends CursorAdapter {
 
             if (thumbnails.size() > 0) {
                 UiUtils.loadImage(context, thumbnails.get(1).getUrl(), 0, viewHolder.thumbnail, viewHolder.progressBar);
+                // GET MAIN THUMBNAIL
+                viewHolder.playlistImg = thumbnails.get(1).getUrl();
+
             }
             else {
                 UiUtils.loadImage(context, placeholderUrl, 0, viewHolder.thumbnail, viewHolder.progressBar);
@@ -211,6 +221,8 @@ public class PlaylistCursorAdapter extends CursorAdapter {
     private void calculateColumnIndexes(Cursor cursor) {
         COL_PLAYLIST_ID = cursor.getColumnIndexOrThrow(Contract.Playlist.COLUMN_ID);
         COL_PLAYLIST_TITLE = cursor.getColumnIndexOrThrow(Contract.Playlist.COLUMN_TITLE);
+        COL_PLAYLIST_DESCRIPTION = cursor.getColumnIndexOrThrow(Contract.Playlist.COLUMN_DESCRIPTION);
+
         COL_PLAYLIST_THUMBNAILS = cursor.getColumnIndexOrThrow(Contract.Playlist.COLUMN_THUMBNAILS);
         COL_PLAYLIST_PARENT_ID = cursor.getColumnIndexOrThrow(Contract.Playlist.COLUMN_PARENT_ID);
         COL_PLAYLIST_ITEM_COUNT = cursor.getColumnIndexOrThrow(Contract.Playlist.COLUMN_PLAYLIST_ITEM_COUNT);
@@ -224,6 +236,8 @@ public class PlaylistCursorAdapter extends CursorAdapter {
         public ProgressBar progressBar;
         public String parentId;
         public int playlistItemCount;
+        public String playlistImg;
+        public String playlistDescription;
     }
 
 }

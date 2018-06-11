@@ -9,8 +9,8 @@ public interface OnMainActivityFragmentListener {
 
     void onSearch(String text);
 
-    void onPlaylist(String parentId);
+    void onPlaylist(String parentId, String parentImg, String parentDescription);
 
-    void onPlaylistWithVideos(String parentId);
+    void onPlaylistWithVideos(String parentId, String parentImg, String parentDescription);
 
 }

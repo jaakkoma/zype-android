@@ -47,6 +47,10 @@ public class PlaylistData {
     @Expose
     private String parentId;
 
+    @SerializedName("description")
+    @Expose
+    private String description;
+
     @SerializedName("priority")
     @Expose
     private int priority;
@@ -164,6 +168,15 @@ public class PlaylistData {
     public String getTitle() {
         return title;
     }
+    /**
+     *
+     * @return
+     * The description
+     */
+    public String getDescription() {
+        return description;
+    }
+
 
     /**
      *
@@ -230,6 +243,15 @@ public class PlaylistData {
     }
 
     /**
+     *
+     * @param description
+     * The parentId
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
      * @return The playlist_item_count
      */
     public int getPlaylistItemCount() {
@@ -263,7 +285,7 @@ public class PlaylistData {
 
     /**
      * @return The thumbnails
-    */
+     */
     @Nullable
     public List<Thumbnail> getThumbnails() {
         return thumbnails;

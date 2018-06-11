@@ -109,6 +109,7 @@ public class Contract {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_TITLE = "title";
         public static final String COLUMN_THUMBNAILS = "thumbnails";
+        public static final String COLUMN_DESCRIPTION = "description";
         public static final String COLUMN_PARENT_ID = "parent_id";
         public static final String COLUMN_CREATED_AT = "created_at";
         public static final String COLUMN_DELETED_AT = "deleted_at";
