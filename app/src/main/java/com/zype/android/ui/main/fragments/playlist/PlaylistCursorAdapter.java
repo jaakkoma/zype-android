@@ -191,6 +191,23 @@ public class PlaylistCursorAdapter extends CursorAdapter {
             }
         }
 
+        // GET MAIN THUMBNAIL FOR TOP THUMBNAIL FEATURE
+        if (thumbnailsString != null) {
+            Type thumbnailType = new TypeToken<List<Thumbnail>>() {
+            }.getType();
+            List<Thumbnail> thumbnails = (new Gson().fromJson(thumbnailsString, thumbnailType));
+
+            if (thumbnails.size() > 0) {
+                viewHolder.playlistImg = thumbnails.get(0).getUrl();
+
+            } else {
+                // viewHolder.playlistImg = placeholderUrl;
+
+            }
+        } else {
+            // viewHolder.playlistImg = placeholderUrl;
+        }
+
         if (playlistMobileThumbnail != null) {
             UiUtils.loadImage(context, playlistMobileThumbnail.getUrl(), 0, viewHolder.thumbnail, viewHolder.progressBar);
         }
@@ -201,9 +218,6 @@ public class PlaylistCursorAdapter extends CursorAdapter {
 
             if (thumbnails.size() > 0) {
                 UiUtils.loadImage(context, thumbnails.get(1).getUrl(), 0, viewHolder.thumbnail, viewHolder.progressBar);
-                // GET MAIN THUMBNAIL
-                viewHolder.playlistImg = thumbnails.get(1).getUrl();
-
             }
             else {
                 UiUtils.loadImage(context, placeholderUrl, 0, viewHolder.thumbnail, viewHolder.progressBar);
